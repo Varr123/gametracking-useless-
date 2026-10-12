@@ -3,7 +3,6 @@ import mediapipe as mp
 import pyautogui
 import time
 
-# Inisialisasi MediaPipe Tasks API (Kompatibel dengan Python versi terbaru)
 BaseOptions = mp.tasks.BaseOptions
 PoseLandmarker = mp.tasks.vision.PoseLandmarker
 PoseLandmarkerOptions = mp.tasks.vision.PoseLandmarkerOptions
@@ -20,7 +19,6 @@ cap = cv2.VideoCapture(0)
 
 print("Program Boxing Responsif & Anti-Error Dimulai! Tekan 'q' untuk keluar.")
 
-# Variabel Status (State) agar tidak ngespam
 left_is_punching = False
 right_is_punching = False
 last_punch_time = 0
@@ -32,7 +30,6 @@ with PoseLandmarker.create_from_options(options) as landmarker:
             print("Gagal membuka kamera.")
             break
 
-        # Cermin layar agar gerakan natural
         frame = cv2.flip(frame, 1)
         h, w, _ = frame.shape
 
