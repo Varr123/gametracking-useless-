@@ -43,7 +43,7 @@ with PoseLandmarker.create_from_options(options) as landmarker:
         if results.pose_landmarks:
             landmarks = results.pose_landmarks[0]
 
-            # Gambar titik-titik tracking secara manual di layar kamera
+        
             for lm in landmarks:
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 cv2.circle(frame, (cx, cy), 4, (0, 255, 0), -1)
@@ -65,7 +65,7 @@ with PoseLandmarker.create_from_options(options) as landmarker:
             # Jeda minimal antar pukulan (0.25 detik agar sangat responsif)
             if current_time - last_punch_time > 0.25:
                 
-                # --- 🥊 TANGAN KIRI = LIGHT PUNCH ---
+                
                 if left_push < -0.18:
                     if not left_is_punching:
                         print("LIGHT PUNCH (Tangan Kiri) 👊")
@@ -75,7 +75,7 @@ with PoseLandmarker.create_from_options(options) as landmarker:
                 elif left_push > -0.08:
                     left_is_punching = False  # Reset saat tangan ditarik mundur
 
-                # --- 💥 TANGAN KANAN = HEAVY PUNCH ---
+                
                 if right_push < -0.22:
                     if not right_is_punching:
                         print("HEAVY PUNCH (Tangan Kanan) 💥")
