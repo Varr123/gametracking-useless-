@@ -68,7 +68,7 @@ with PoseLandmarker.create_from_options(options) as landmarker:
                 
                 if left_push < -0.18:
                     if not left_is_punching:
-                        print("LIGHT PUNCH (Tangan Kiri) 👊")
+                        print("LIGHT PUNCH (Tangan Kiri) ")
                         pyautogui.click()
                         left_is_punching = True
                         last_punch_time = current_time
@@ -78,14 +78,13 @@ with PoseLandmarker.create_from_options(options) as landmarker:
                 
                 if right_push < -0.22:
                     if not right_is_punching:
-                        print("HEAVY PUNCH (Tangan Kanan) 💥")
+                        print("HEAVY PUNCH (Tangan Kanan) ")
                         pyautogui.click()
                         right_is_punching = True
                         last_punch_time = current_time
                 elif right_push > -0.10:
                     right_is_punching = False  # Reset saat tangan ditarik mundur
 
-            # --- ⬅️ ➡️ DODGE (KIRI & KANAN) ---
             if nose.x < center_shoulder_x - 0.12:
                 pyautogui.press('a')
             elif nose.x > center_shoulder_x + 0.12:
