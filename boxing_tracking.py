@@ -14,10 +14,10 @@ options = PoseLandmarkerOptions(
     num_poses=1
 )
 
-# Buka Kamera (Webcam)
+# Open camera (Webcam)
 cap = cv2.VideoCapture(0)
 
-print("Program Boxing Responsif & Anti-Error Dimulai! Tekan 'q' untuk keluar.")
+print("Program Boxing Responsif & Anti-Error Started! Press 'q' for leave.")
 
 left_is_punching = False
 right_is_punching = False
@@ -62,7 +62,6 @@ with PoseLandmarker.create_from_options(options) as landmarker:
             left_push = left_wrist.z - left_shoulder.z
             right_push = right_wrist.z - right_shoulder.z
 
-            # Jeda minimal antar pukulan (0.25 detik agar sangat responsif)
             if current_time - last_punch_time > 0.25:
                 
                 
@@ -73,7 +72,7 @@ with PoseLandmarker.create_from_options(options) as landmarker:
                         left_is_punching = True
                         last_punch_time = current_time
                 elif left_push > -0.08:
-                    left_is_punching = False  # Reset saat tangan ditarik mundur
+                    left_is_punching = False 
 
                 
                 if right_push < -0.22:
